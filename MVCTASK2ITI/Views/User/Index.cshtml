@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    int Counter = 1;
+}
+
+<div class="w-50 m-auto ">
+    <table class="table table-striped ">
+        <thead class="table-dark">
+            <tr>
+                <th class="col-2" scope="col">#</th>
+                <th class="col-2" scope="col">Name</th>
+                <th class="col-2" scope="col">Age</th>
+                <th class="col-2" scope="col">More Details</th>
+                <th class="col-2" scope="col">Delete</th>
+                <th class="col-2" scope="col">Update</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (User Users in Model)
+            {
+                <tr>
+                    <th scope="row">@(Counter++)</th>
+                    <td>@Users.Name</td>
+                    <td>@Users.Age</td>
+                    <td><a href="/User/Login?Id=@Users.Id" class="btn btn-primary">Details</a></td>
+                    <td><a href="/User/Delete?Id=@Users.Id" class="btn btn-danger">Delete</a></td>
+                    <td><a href="/User/Update?Id=@Users.Id" class="btn btn-warning">Update</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <tr scope="row" class="">
+        <td colspan="6" class="text-center align-middle">
+            <a href="/User/Create" class="btn btn-info w-100">Add New User</a>
+        </td>
+    </tr>
+</div>
